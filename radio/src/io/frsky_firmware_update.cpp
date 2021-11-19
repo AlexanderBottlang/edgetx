@@ -250,11 +250,14 @@ void FrskyDeviceFirmwareUpdate::sendFrame()
   switch (module) {
 #if defined(INTERNAL_MODULE_PXX2)
     case INTERNAL_MODULE:
-      return intmoduleSendBuffer(outputTelemetryBuffer.data, ptr - outputTelemetryBuffer.data);
+      IntmoduleSerialDriver.sendBuffer(outputTelemetryBuffer.data,
+                                       ptr - outputTelemetryBuffer.data);
+      return;
 #endif
 
     default:
-      return sportSendBuffer(outputTelemetryBuffer.data, ptr - outputTelemetryBuffer.data);
+      sportSendBuffer(outputTelemetryBuffer.data, ptr - outputTelemetryBuffer.data);
+      return;
   }
 }
 

@@ -522,6 +522,7 @@ if(INTERNAL_MODULE_MULTI)
   set(TARGET_SRC
     ${TARGET_SRC}
     ../common/arm/stm32/intmodule_serial_driver.cpp
+    ../common/arm/stm32/stm32_usart_driver.cpp
     )
 endif()
 
