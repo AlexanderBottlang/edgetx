@@ -368,6 +368,7 @@ if(INTERNAL_MODULE_SERIAL)
   set(TARGET_SRC
     ${TARGET_SRC}
     ../common/arm/stm32/intmodule_serial_driver.cpp
+    ../common/arm/stm32/stm32_usart_driver.cpp
     )
 elseif(INTERNAL_MODULE_PXX1 OR INTERNAL_MODULE_PXX2)
   set(TARGET_SRC
