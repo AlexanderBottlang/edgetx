@@ -46,7 +46,11 @@ class TextWidget: public Widget
       }
 
       // draw text
-      dc->drawText(0, 0, persistentData->options[0].value.stringValue, fontsize | CUSTOM_COLOR);
+	  if (persistentData->options[5].value.boolValue) {
+		dc->drawText(0, 0, g_model.header.name, fontsize | CUSTOM_COLOR);
+	  } else {
+		dc->drawText(0, 0, persistentData->options[0].value.stringValue, fontsize | CUSTOM_COLOR);
+	  }
     }
 
     static const ZoneOption options[];
@@ -57,7 +61,8 @@ const ZoneOption TextWidget::options[] = {
   { STR_COLOR, ZoneOption::Color, OPTION_VALUE_UNSIGNED(COLOR_THEME_SECONDARY1>>16) },
   { STR_SIZE, ZoneOption::TextSize, OPTION_VALUE_UNSIGNED(0) },
   { STR_SHADOW, ZoneOption::Bool, OPTION_VALUE_BOOL(false)  },
-  { nullptr, ZoneOption::Bool }
+  { nullptr, ZoneOption::Bool },
+  { "Model Name", ZoneOption::Bool, OPTION_VALUE_BOOL(false) }
 };
 
 BaseWidgetFactory<TextWidget> textWidget("Text", TextWidget::options);
